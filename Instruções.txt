@@ -1,0 +1,10 @@
+1º-> EXECUTAR A APLICAÇÃO E O BANCO DE DADOS SERÁ CRIADO AUTOMATICAMENTE
+
+2º -> EXECUTAR o teste que está na classe InsertsNoBancoDeDados, e isso criará as chaves primarias necessárias
+
+==================
+Equipe:
+-> Bruno de Carvalho
+-> DJ Black
+-> Isac Moura
+==================

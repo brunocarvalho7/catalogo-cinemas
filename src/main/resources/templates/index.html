@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+<head>
+    <title>Index</title>
+    <link href="/webjars/materializecss/0.97.7/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+
+<div class="container">
+    <center>
+        <h3>Gerenciar Sessoes</h3>
+    </center>
+    <br />
+
+
+    <div class="row">
+        <h5>Sessoes Cadastradas</h5>
+        <table class="striped">
+            <thead>
+            <tr>
+                <th>Sala</th>
+                <th>Filme</th>
+                <th>Horario</th>
+                <th>Hora de estreia em cartaz</th>
+                <th>Hora de saída de cartaz</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="sessao : ${sessoes}">
+                <td th:text="${sessao.sala}"></td>
+                <td th:text="${sessao.filme}"></td>
+                <td th:text="${sessao.horario}"></td>
+                <td th:text="${sessao.dataInicio}"></td>
+                <td th:text="${sessao.dataFim}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+<script src="/webjars/jquery/2.2.4/jquery.js"></script>
+<script src="/webjars/materializecss/0.97.7/js/materialize.js"></script>
+</body>
+</html>
