@@ -1,27 +1,24 @@
 package br.ufc.catalogocinemas.controller;
 
 import br.ufc.catalogocinemas.model.Sala;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
 public interface SalaController {
+    ModelAndView addSala(Sala sala);
 
-    Sala cadastrarGET(Sala sala);
+    ModelAndView removerSala(int id);
 
-    Sala cadastrarPOST(Sala sala);
+    ModelAndView atualizarSala(Sala sala);
 
-    Sala addSala(Sala sala);
+    ModelAndView buscarSalaId(int id);
 
-    Sala removerSala(int id);
-
-    Sala atualizarSala(Sala sala);
-
-    Sala buscarSalaId(int id);
-
+    //TODO: RETIRAR ESSE MÉTODO E FAZER TUDO VIA JOIN NO SERVICE DE SALA
     List<Sala> buscarSalasPorCidade(String cidade);
 
     List<Sala> buscarTodasAsSalas();
 
-    Sala buscarSalaNome(String nome);
+    ModelAndView buscarSalaNome(String nome);
 
 }

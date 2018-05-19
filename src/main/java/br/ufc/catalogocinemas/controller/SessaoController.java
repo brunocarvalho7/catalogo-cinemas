@@ -61,7 +61,6 @@ public class SessaoController {
     }
 
     @RequestMapping(path = "/allFilme", method = RequestMethod.GET)
-    //public ModelAndView todosPorFilme(@RequestParam("filme") String nomeFilme)
     public ModelAndView todosPorFilme(@RequestParam("filme") String nomeFilme){
         FilmeController filmeController = Mocks.getFilmeControllerMock();
         Filme filme = filmeController.buscarFilmeNome(nomeFilme);
@@ -76,6 +75,10 @@ public class SessaoController {
         model.addObject("sessoes", sessoes);
 
         return model;
+    }
+
+    public ModelAndView todosPorGenero(String genero){
+        return null;
     }
 
     @RequestMapping(path = "/{id}", method = RequestMethod.GET)
@@ -105,7 +108,7 @@ public class SessaoController {
     @RequestMapping(path = "/add", method = RequestMethod.POST)
     public ModelAndView addSessao(@RequestParam Integer filme,@RequestParam Integer sala,
                                   @RequestParam String horario,@RequestParam String dataInicio,@RequestParam String dataFim) {
-
+/*
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ISO_LOCAL_DATE;
         DateTimeFormatter TimeFormatter = DateTimeFormatter.ISO_LOCAL_TIME;
 
@@ -127,9 +130,10 @@ public class SessaoController {
         model.addObject("sessao", sessaoResponse);
         model.addObject("msg", msgRetorno);
 
-        return model;
-    }
+        return model;*/
 
+        return null;
+    }
 
     public ModelAndView addSessao(Sessao sessao){
 
@@ -148,7 +152,6 @@ public class SessaoController {
 
         return model;
     }
-
 
     @RequestMapping(path = "/delete/{id}")
     public ModelAndView removerSessao(int id){

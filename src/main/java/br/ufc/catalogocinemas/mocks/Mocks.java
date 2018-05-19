@@ -72,9 +72,9 @@ public class Mocks {
 
         Mockito.when(salaController.buscarTodasAsSalas()).thenReturn(salas);
 
-        Mockito.when(salaController.buscarSalaId(1)).thenReturn(sala1);
+      /*  Mockito.when(salaController.buscarSalaId(1)).thenReturn(sala1);
         Mockito.when(salaController.buscarSalaId(2)).thenReturn(sala2);
-        Mockito.when(salaController.buscarSalaId(3)).thenReturn(sala3);
+        Mockito.when(salaController.buscarSalaId(3)).thenReturn(sala3);*/
     }
 
     private static void initCinemaControllerMock(){

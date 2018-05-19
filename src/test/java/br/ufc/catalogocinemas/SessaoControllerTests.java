@@ -26,7 +26,7 @@ import java.util.List;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class SessaoControllerTests {
-
+/*
     @Autowired
     private SessaoController controller;
 
@@ -935,4 +935,6 @@ public class SessaoControllerTests {
         //===================================================
 
     }
+
+*/
 }

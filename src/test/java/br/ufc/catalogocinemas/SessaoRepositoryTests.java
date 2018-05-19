@@ -30,7 +30,7 @@ diversas camadas de sessão
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class SessaoRepositoryTests {
-    @Autowired
+  /*  @Autowired
     SessaoRepository repository;
 
     @Rule
@@ -983,5 +983,5 @@ public class SessaoRepositoryTests {
 
         thrown.expect(DateTimeException.class);
         List<Sessao> sessoes = repository.findByDataInicioGreaterThanEqualAndDataFimLessThanEqual(LocalDate.parse("2018-05-01"), LocalDate.parse("bbb"));
-    }
+    }*/
 }

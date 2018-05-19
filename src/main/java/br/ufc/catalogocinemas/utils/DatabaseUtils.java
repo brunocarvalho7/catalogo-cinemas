@@ -28,6 +28,17 @@ public class DatabaseUtils {
         }
     }
 
+    public void deleteAllAdmin(){
+        try{
+            connection = dataSource.getConnection();
+            Statement statement = connection.createStatement();
+            //Remover todas as sessões
+            statement.execute("DELETE FROM ADMIN");
+        }catch (SQLException e){
+            System.err.println(e.getMessage());
+        }
+    }
+
     public int getMaxIdSessao(){
         try{
             connection = dataSource.getConnection();
