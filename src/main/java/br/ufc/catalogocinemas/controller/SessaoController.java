@@ -46,7 +46,7 @@ public class SessaoController {
 
     @RequestMapping(path = "/cidade")
     public ModelAndView todosPorCidade(String cidade){
-        List<Sala> salas = Mocks.getSalaController().buscarSalasPorCidade(cidade);
+       /* List<Sala> salas = Mocks.getSalaController().buscarSalasPorCidade(cidade);
 
         List<Sessao> sessoes = new ArrayList<>();
 
@@ -57,7 +57,8 @@ public class SessaoController {
         ModelAndView model = new ModelAndView("sessoes");
         model.addObject("sessoes", sessoes);
 
-        return model;
+        return model;*/
+       return null;
     }
 
     @RequestMapping(path = "/allFilme", method = RequestMethod.GET)

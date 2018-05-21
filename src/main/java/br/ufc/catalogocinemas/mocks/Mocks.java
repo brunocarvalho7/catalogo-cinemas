@@ -80,7 +80,7 @@ public class Mocks {
     private static void initCinemaControllerMock(){
         cinemaController = Mockito.mock(CinemaController.class);
 
-        Mockito.when(cinemaController.buscarCinema(1)).thenReturn(new Cinema());
+        //Mockito.when(cinemaController.buscarCinema(1)).thenReturn(new Cinema());
     }
 
     private static void initGeneroControllerMock() {

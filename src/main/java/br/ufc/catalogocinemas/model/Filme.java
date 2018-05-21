@@ -38,28 +38,35 @@ public class Filme {
             inverseJoinColumns = @JoinColumn(name = "diretor_id", referencedColumnName = "id"))
     private List<Diretor> diretores;
 
-    @OneToOne
-    private Genero genero;
+    @ManyToMany
+            (cascade = {
+                    CascadeType.PERSIST,
+                    CascadeType.MERGE,
+            })
+    @JoinTable(name = "filme_generos",
+            joinColumns = @JoinColumn(name="filme_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "genero_id", referencedColumnName = "id"))
+    private List<Genero> generos;
 
     public Filme() {
     }
 
-    public Filme(String nome, String sinopse, int duracao, Genero genero) {
+    public Filme(String nome, String sinopse, int duracao) {
         this.nome = nome;
         this.sinopse = sinopse;
         this.duracao = duracao;
-        this.genero = genero;
+        this.generos = new ArrayList<>();
         this.atores = new ArrayList<>();
         this.diretores = new ArrayList<>();
     }
 
-    public Filme(String nome, String sinopse, int duracao, List<Ator> atores, List<Diretor> diretores, Genero genero) {
+    public Filme(String nome, String sinopse, int duracao, List<Ator> atores, List<Diretor> diretores, List<Genero> generos) {
         this.nome = nome;
         this.sinopse = sinopse;
         this.duracao = duracao;
         this.atores = atores;
         this.diretores = diretores;
-        this.genero = genero;
+        this.generos = generos;
     }
 
     public int getId() {
@@ -118,12 +125,16 @@ public class Filme {
         return this.getDiretores().remove(diretor);
     }
 
-    public Genero getGenero() {
-        return genero;
+    public List<Genero> getGenero() {
+        return generos;
     }
 
-    public void setGenero(Genero genero) {
-        this.genero = genero;
+    public boolean adicionarGenero(Genero genero){
+        return this.generos.add(genero);
+    }
+
+    public boolean removerGenero(Genero genero){
+        return this.generos.remove(genero);
     }
 
     @Override
@@ -143,7 +154,7 @@ public class Filme {
                 ", nome='" + nome + '\'' +
                 ", sinopse='" + sinopse + '\'' +
                 ", duracao=" + duracao +
-                ", genero=" + genero +
+                ", generos=" + generos +
                 '}';
     }
 }

@@ -1,10 +1,9 @@
 package br.ufc.catalogocinemas.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Genero {
@@ -12,6 +11,9 @@ public class Genero {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int id;
+
+    @ManyToMany(mappedBy = "generos")
+    private List<Filme> filmes;
 
     @NotNull
     public String descricao;
@@ -22,6 +24,7 @@ public class Genero {
 
     public Genero(String descricao) {
         this.descricao = descricao;
+        this.filmes = new ArrayList<>();
     }
 
     public int getId() {
@@ -38,6 +41,16 @@ public class Genero {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public boolean adicionarFilme(Filme filme){
+        this.filmes.add(filme);
+        return filme.adicionarGenero(this);
+    }
+
+    public boolean removerFilme(Filme filme){
+        this.filmes.remove(filme);
+        return filme.removerGenero(this);
     }
 
     @Override

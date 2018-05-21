@@ -28,7 +28,7 @@ public class AtorRepositoryTests {
 
     @Test
     public void adicionarAtor(){
-        Filme filme = new Filme("Filme qualquer 45", "Sinpose qualquer", 150, null);
+        Filme filme = new Filme("Filme qualquer 45", "Sinpose qualquer", 150);
 
         Ator ator = new Ator("Bruno Sobrinho445", "Qualquer coisa");
 
