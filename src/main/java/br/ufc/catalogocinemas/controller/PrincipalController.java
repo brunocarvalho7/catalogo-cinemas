@@ -19,10 +19,10 @@ public class PrincipalController {
     @RequestMapping(path = "/add")
     public ModelAndView addSessao() {
         ModelAndView model = new ModelAndView("adicionar-sessao");
-        List<Filme> filmes = Mocks.getFilmeControllerMock().buscarTodosOsFilmes();
+        /*List<Filme> filmes = Mocks.getFilmeControllerMock().buscarTodosOsFilmes();
         List<Sala> salas= Mocks.getSalaControllerMock().buscarTodasAsSalas();
         model.addObject("salas", salas);
-        model.addObject("filmes", filmes);
+        model.addObject("filmes", filmes);*/
         return model;
     }
 }

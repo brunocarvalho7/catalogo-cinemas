@@ -1,6 +1,7 @@
 package br.ufc.catalogocinemas.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,8 +12,13 @@ public class Cinema{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @NotNull
     private String nome;
+
+    @NotNull
     private String endereco;
+
+    @NotNull
     private String cidade;
 
     @OneToMany(fetch=FetchType.EAGER)

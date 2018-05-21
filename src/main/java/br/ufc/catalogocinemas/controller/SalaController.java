@@ -12,7 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 
 @Controller
-@RequestMapping("sala")
+@RequestMapping("/sala")
 public class SalaController {
 
     @Autowired
@@ -32,7 +32,7 @@ public class SalaController {
     }
 
     @RequestMapping(path = "/remover/{id}")
-    public ModelAndView removerSala(int id) {
+    public ModelAndView removerSala(@PathVariable("id") int id) {
         ModelAndView model = new ModelAndView("sala");
 
         if(id > 0){
@@ -72,6 +72,7 @@ public class SalaController {
         return model;
     }
 
+    @RequestMapping(path = "/")
     public ModelAndView buscarTodasAsSalas() {
         ModelAndView model = new ModelAndView("sala");
 
@@ -80,7 +81,8 @@ public class SalaController {
         return model;
     }
 
-    public ModelAndView buscarSalaNome(String nome) {
+    @RequestMapping(path = "/{nome}")
+    public ModelAndView buscarSalaNome(@PathVariable String nome) {
         ModelAndView model = new ModelAndView("sala");
 
         if(nome != null && nome.trim().isEmpty() == false){
