@@ -39,6 +39,18 @@ public class DatabaseUtils {
         }
     }
 
+    public void deleteAllGeneros(){
+        try{
+            connection = dataSource.getConnection();
+            Statement statement = connection.createStatement();
+            statement.execute("DELETE FROM FILME_GENEROS");
+            statement.execute("DELETE FROM GENERO");
+            statement.execute("ALTER SEQUENCE genero_id_seq RESTART");
+        }catch (SQLException e){
+            System.err.println(e.getMessage());
+        }
+    }
+
     public int getMaxIdSessao(){
         try{
             connection = dataSource.getConnection();

@@ -10,13 +10,13 @@ public class Genero {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public int id;
+    private int id;
 
     @ManyToMany(mappedBy = "generos")
     private List<Filme> filmes;
 
     @NotNull
-    public String descricao;
+    private String descricao;
 
     public Genero(){
 
