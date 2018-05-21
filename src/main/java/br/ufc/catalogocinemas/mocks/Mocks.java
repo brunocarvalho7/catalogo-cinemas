@@ -36,7 +36,7 @@ public class Mocks {
     private static SalaController salaController;
 
     private static void initFilmeControllerMock(){
-        filmeControllerMock = Mockito.mock(FilmeController.class);
+        /*filmeControllerMock = Mockito.mock(FilmeController.class);
 
         Filme filme1 = new Filme(1);//, "Acampamento do Papai");
         Filme filme2 = new Filme(2);//, "O Espetacular Homem-Aranha");
@@ -53,11 +53,11 @@ public class Mocks {
 
         List<Filme> filmes = new ArrayList<>(Arrays.asList(filme1, filme2, filme3));
 
-        Mockito.when(filmeControllerMock.buscarTodosOsFilmes()).thenReturn(filmes);
+        Mockito.when(filmeControllerMock.buscarTodosOsFilmes()).thenReturn(filmes);*/
     }
 
     private static void initSalaControllerMock(){
-        salaController = Mockito.mock(SalaController.class);
+        /*salaController = Mockito.mock(SalaController.class);
 
         Sala sala1 = new Sala(1);
         Sala sala2 = new Sala(2);
@@ -84,7 +84,7 @@ public class Mocks {
     }
 
     private static void initGeneroControllerMock() {
-        generoController = Mockito.mock(GeneroController.class);
+        /*generoController = Mockito.mock(GeneroController.class);
 
         Genero generoA = new Genero(1,"Ação");
         Genero generoB = new Genero(2,"Drama");
@@ -102,7 +102,7 @@ public class Mocks {
         Mockito.when(generoController.buscarGeneroNome("Fantasia")).thenReturn(generoC);
 
 
-        Mockito.when(generoController.getAllGeneros()).thenReturn(generos);
+        Mockito.when(generoController.getAllGeneros()).thenReturn(generos);*/
     }
 
 
