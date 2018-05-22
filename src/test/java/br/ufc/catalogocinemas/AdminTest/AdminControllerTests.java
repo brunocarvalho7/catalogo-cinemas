@@ -1,4 +1,4 @@
-package br.ufc.catalogocinemas;
+package br.ufc.catalogocinemas.AdminTest;
 
 import br.ufc.catalogocinemas.controller.AdminController;
 import br.ufc.catalogocinemas.model.Admin;

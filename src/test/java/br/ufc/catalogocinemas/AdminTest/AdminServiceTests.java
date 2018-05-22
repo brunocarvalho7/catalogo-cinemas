@@ -1,7 +1,8 @@
-package br.ufc.catalogocinemas;
+package br.ufc.catalogocinemas.AdminTest;
 
 import br.ufc.catalogocinemas.model.Admin;
 import br.ufc.catalogocinemas.repository.AdminRepository;
+import br.ufc.catalogocinemas.service.AdminService;
 import br.ufc.catalogocinemas.utils.DatabaseUtils;
 import org.junit.Assert;
 import org.junit.Before;
@@ -13,7 +14,10 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class AdminRepositoryTests {
+public class AdminServiceTests {
+
+    @Autowired
+    AdminService service;
 
     @Autowired
     AdminRepository repository;
@@ -33,39 +37,40 @@ public class AdminRepositoryTests {
     }
 
     @Test
-    public void adicionarAdminCorretamenteTest(){
-        Admin admResponse = repository.save(adminTeste);
+    public void LogarCrretamenteTest(){
+        Admin admResponse = service.logar(adminTeste.getLogin(), adminTeste.getSenha());
 
         Assert.assertNotNull(admResponse);
     }
 
     @Test
-    public void logarCorretamenteTest(){
-        Admin adminResponse = repository.logar(adminTeste.getLogin(), adminTeste.getSenha());
-
-        Assert.assertNotNull(adminResponse);
-    }
-
-    @Test
     public void falhaAoLogarComLoginIncorretoTest(){
-        Admin adminResopnse = repository.logar("verificacao", adminTeste.getSenha());
+        Admin adminResopnse = service.logar("verificação", adminTeste.getSenha());
 
         Assert.assertNull(adminResopnse);
     }
 
     @Test
     public void falhaAoLogarComSenhaIncorretaTest(){
-        Admin adminResopnse = repository.logar(adminTeste.getLogin(), "aaaa");
+        Admin adminResopnse = service.logar(adminTeste.getLogin(), "aaaa");
 
         Assert.assertNull(adminResopnse);
     }
 
     @Test
-    public void atualizarAdminTest(){
-        adminTeste.setSenha("1234");
+    public void atualizarAdminCorretamenteTest(){
+        adminTeste.setSenha("4567");
+        Boolean response = service.atualizarAdmin(adminTeste.getLogin(), adminTeste);
 
-        Admin adminResponse = repository.save(adminTeste);
-
-        Assert.assertEquals(adminTeste, adminResponse);
+        Assert.assertTrue(response);
     }
+
+    @Test
+    public void falhaAoTentarAtualizarAdminInexistenteTest(){
+        adminTeste.setSenha("4567");
+        Boolean response = service.atualizarAdmin("verificação", adminTeste);
+
+        Assert.assertFalse(response);
+    }
+
 }

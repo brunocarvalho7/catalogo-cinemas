@@ -105,6 +105,18 @@ public class DatabaseUtils {
         }
     }
 
+	public void deleteAllCinemas() {
+		try{
+            connection = dataSource.getConnection();
+            Statement statement = connection.createStatement();
+            statement.execute("DELETE FROM cinema_salas");
+            statement.execute("DELETE FROM cinema");
+            statement.execute("ALTER SEQUENCE cinema_id_seq RESTART");
+        }catch (SQLException e){
+            System.err.println(e.getMessage());
+        }
+	}
+
     public void deleteAllAtores() {
         try{
             connection = dataSource.getConnection();
@@ -123,6 +135,17 @@ public class DatabaseUtils {
             statement.execute("DELETE FROM FILME_DIRETORES");
             statement.execute("DELETE FROM DIRETOR");
             statement.execute("ALTER SEQUENCE diretor_id_seq RESTART");
+        }catch (SQLException e){
+            System.err.println(e.getMessage());
+        }
+    }
+
+    public void deleteAllSalas() {
+        try{
+            connection = dataSource.getConnection();
+            Statement statement = connection.createStatement();
+            statement.execute("DELETE FROM SALA");
+            statement.execute("ALTER SEQUENCE sala_id_seq RESTART");
         }catch (SQLException e){
             System.err.println(e.getMessage());
         }
