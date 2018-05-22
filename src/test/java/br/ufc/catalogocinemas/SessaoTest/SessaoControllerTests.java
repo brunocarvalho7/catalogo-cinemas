@@ -1,4 +1,4 @@
-package br.ufc.catalogocinemas;
+package br.ufc.catalogocinemas.SessaoTest;
 
 import br.ufc.catalogocinemas.controller.SessaoController;
 import br.ufc.catalogocinemas.mocks.Mocks;

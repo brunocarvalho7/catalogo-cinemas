@@ -1,4 +1,4 @@
-package br.ufc.catalogocinemas;
+package br.ufc.catalogocinemas.CinemaTest;
 
 import java.util.List;
 
@@ -480,36 +480,6 @@ public class CinemaControllerTests {
         Cinema cinemaResponse = (Cinema) controller.atualizarCinema(cinema).getModel().get("cinema");
 
         Assert.assertNull(cinemaResponse);
-    }
-
-    @Test
-    public void buscarTodosOsCinemas(){
-        databaseUtils.deleteAllCinemas();
-
-        controller.addCinema(new Cinema("Cinema Pinheiro", "Avenida da Universidade", "Fortaleza"));
-        controller.addCinema(new Cinema("Cinema Pinheiro 2", "Avenida da Universidade 2", "Quixadá"));
-        controller.addCinema(new Cinema("Cinema Pinheiro 3", "Avenida da Universidade 3", "Sobral"));
-
-
-
-        List<Cinema> cinemas = (List<Cinema>) controller.get().getModel().get("cinemas");
-
-        Assert.assertEquals(3, cinemas.size());
-    }
-
-    @Test
-    public void erroAoBuscarTodosOsGeneros(){
-    	databaseUtils.deleteAllCinemas();
-
-        controller.addCinema(new Cinema("Cinema Pinheiro", "Avenida da Universidade", "Fortaleza"));
-        controller.addCinema(new Cinema("Cinema Pinheiro 2", "Avenida da Universidade 2", "Quixadá"));
-        controller.addCinema(new Cinema("Cinema Pinheiro 3", "Avenida da Universidade 3", "Sobral"));
-
-
-
-        List<Cinema> cinemas = (List<Cinema>) controller.get().getModel().get("cinemas");
-
-        Assert.assertNotEquals(4, cinemas.size());
     }
 	
 }

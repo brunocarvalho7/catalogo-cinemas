@@ -1,5 +1,6 @@
-package br.ufc.catalogocinemas;
+package br.ufc.catalogocinemas.CinemaTest;
 
+import br.ufc.catalogocinemas.model.Cinema;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -23,9 +24,9 @@ public class CinemaServiceTests {
 
     @Test
     public void adicionarCinemaTest(){
-        Genero genero = new Genero("Ação");
+        Cinema cinema = new Cinema("Teste cinema", "Endereço a", "Quixada");
 
-        Assert.assertNotNull(service.addGenero(genero));
+        Assert.assertNotNull(cinema);
     }
 
 	

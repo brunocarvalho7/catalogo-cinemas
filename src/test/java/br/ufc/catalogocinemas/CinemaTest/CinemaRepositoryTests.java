@@ -1,4 +1,4 @@
-package br.ufc.catalogocinemas;
+package br.ufc.catalogocinemas.CinemaTest;
 
 import br.ufc.catalogocinemas.model.Cinema;
 import br.ufc.catalogocinemas.model.Sala;
