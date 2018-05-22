@@ -1,4 +1,4 @@
-package br.ufc.catalogocinemas;
+package br.ufc.catalogocinemas.GeneroTest;
 
 import br.ufc.catalogocinemas.model.Genero;
 import br.ufc.catalogocinemas.repository.GeneroRepository;

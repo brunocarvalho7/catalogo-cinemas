@@ -84,6 +84,7 @@ public class DatabaseUtils {
         }
     }
 
+<<<<<<< HEAD
 	public void deleteAllCinemas() {
 		try{
             connection = dataSource.getConnection();
@@ -95,5 +96,30 @@ public class DatabaseUtils {
             System.err.println(e.getMessage());
         }
 	}
+=======
+    public void deleteAllAtores() {
+        try{
+            connection = dataSource.getConnection();
+            Statement statement = connection.createStatement();
+            statement.execute("DELETE FROM FILME_ATORES");
+            statement.execute("DELETE FROM ATOR");
+            statement.execute("ALTER SEQUENCE ator_id_seq RESTART");
+        }catch (SQLException e){
+            System.err.println(e.getMessage());
+        }
+    }
+    public void deleteAllDiretores() {
+        try{
+            connection = dataSource.getConnection();
+            Statement statement = connection.createStatement();
+            statement.execute("DELETE FROM FILME_DIRETORES");
+            statement.execute("DELETE FROM DIRETOR");
+            statement.execute("ALTER SEQUENCE diretor_id_seq RESTART");
+        }catch (SQLException e){
+            System.err.println(e.getMessage());
+        }
+    }
+
+>>>>>>> dbf0edf09b6f535e00b0822c0826360778620823
 }
 
