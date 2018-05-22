@@ -83,5 +83,29 @@ public class DatabaseUtils {
             System.err.println(e.getMessage());
         }
     }
+
+    public void deleteAllAtores() {
+        try{
+            connection = dataSource.getConnection();
+            Statement statement = connection.createStatement();
+            statement.execute("DELETE FROM FILME_ATORES");
+            statement.execute("DELETE FROM ATOR");
+            statement.execute("ALTER SEQUENCE ator_id_seq RESTART");
+        }catch (SQLException e){
+            System.err.println(e.getMessage());
+        }
+    }
+    public void deleteAllDiretores() {
+        try{
+            connection = dataSource.getConnection();
+            Statement statement = connection.createStatement();
+            statement.execute("DELETE FROM FILME_DIRETORES");
+            statement.execute("DELETE FROM DIRETOR");
+            statement.execute("ALTER SEQUENCE diretor_id_seq RESTART");
+        }catch (SQLException e){
+            System.err.println(e.getMessage());
+        }
+    }
+
 }
 
