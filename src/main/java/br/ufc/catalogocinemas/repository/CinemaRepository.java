@@ -8,4 +8,5 @@ import javax.transaction.Transactional;
 
 @Repository
 public interface CinemaRepository extends JpaRepository<Cinema, Integer>{
+	
 }
