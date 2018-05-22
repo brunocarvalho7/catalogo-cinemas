@@ -25,6 +25,12 @@ public class Sala{
     public Sala() {
     }
 
+    public Sala(String nome, TipoSala tipo, int capacidade) {
+        this.nome = nome;
+        this.tipo = tipo;
+        this.capacidade = capacidade;
+    }
+
     public Sala(String nome, TipoSala tipo, Cinema cinema, int capacidade) {
         this.nome = nome;
         this.tipo = tipo;

@@ -51,6 +51,27 @@ public class DatabaseUtils {
         }
     }
 
+    public void deleteAllSalasECinemasEFilmesESessao(){
+        try{
+            connection = dataSource.getConnection();
+            Statement statement = connection.createStatement();
+            statement.execute("DELETE FROM SESSAO");
+            statement.execute("DELETE FROM CINEMA_SALAS");
+            statement.execute("DELETE FROM SALA");
+            statement.execute("DELETE FROM CINEMA");
+            statement.execute("DELETE FROM FILME_ATORES");
+            statement.execute("DELETE FROM FILME_DIRETORES");
+            statement.execute("DELETE FROM FILME_GENEROS");
+            statement.execute("DELETE FROM FILME");
+            statement.execute("ALTER SEQUENCE sala_id_seq RESTART");
+            statement.execute("ALTER SEQUENCE sessao_id_seq RESTART");
+            statement.execute("ALTER SEQUENCE cinema_id_seq RESTART");
+            statement.execute("ALTER SEQUENCE filme_id_seq RESTART");
+        }catch (SQLException e){
+            System.err.println(e.getMessage());
+        }
+    }
+
     public int getMaxIdSessao(){
         try{
             connection = dataSource.getConnection();

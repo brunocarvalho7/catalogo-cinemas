@@ -22,12 +22,16 @@ public class SessaoService {
         return repository.findByDataInicioGreaterThanEqualAndDataFimLessThanEqual(dataInicio, dataFim);
     }
 
-    public List<Sessao> todosPorFilme(int id){
-        return repository.findByFilme_id(id);
+    public List<Sessao> todasPorCidade(String cidade){
+        return repository.buscarPorCidade(cidade);
+    }
+
+    public List<Sessao> todosPorFilme(String nome){
+        return repository.buscarPorFilme(nome);
     }
 
     public Sessao getSessaoPorId(int id){
-        return repository.findOne(Integer.valueOf(id));
+        return repository.findOne(id);
     }
 
     public Sessao atualizarSessao(Sessao sessao){
@@ -35,7 +39,6 @@ public class SessaoService {
     }
 
     public Sessao addSessao(Sessao sessao){
-
         return repository.save(sessao);
     }
 
@@ -43,7 +46,7 @@ public class SessaoService {
         Sessao s = this.getSessaoPorId(id);
 
         if(s != null){
-            repository.delete(Integer.valueOf(id));
+            repository.delete(id);
             return s;
         }
 
