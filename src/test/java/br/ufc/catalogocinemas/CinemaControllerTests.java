@@ -22,7 +22,7 @@ public class CinemaControllerTests {
 	private CinemaController controller;
 	
 	@Autowired
-	DatabaseUtils databaseutils;
+	DatabaseUtils databaseUtils;
 	
 	@Test
     public void adicionarCinemaCorretamenteTest(){
@@ -328,67 +328,188 @@ public class CinemaControllerTests {
     }
 
     @Test
-    public void erroAoAtualizarGeneroComDescricaoVaziaTest(){
-        Genero genero = new Genero("");
+    public void erroAoAtualizarCinemaComNomeVazioTest(){
+        Cinema cinema = new Cinema("", "Algum lugar de fortaleza", "Fortaleza");
 
-        Genero generoResponse = (Genero) controller.atualizarGenero(genero).getModel().get("genero");
 
-        Assert.assertNull(generoResponse);
+        Cinema cinemaResponse = (Cinema) controller.atualizarCinema(cinema).getModel().get("cinema");
+
+        Assert.assertNull(cinemaResponse);
     }
+    
     @Test
-    public void erroAoAtualizarGeneroComDescricaoSoComEspacosTest(){
-        Genero genero = new Genero("  ");
+    public void erroAoAtualizarCinemaComEnderecoVazioTest(){
+        Cinema cinema = new Cinema("Cinema Pinheiro", "", "Fortaleza");
 
-        Genero generoResponse = (Genero) controller.atualizarGenero(genero).getModel().get("genero");
 
-        Assert.assertNull(generoResponse);
+        Cinema cinemaResponse = (Cinema) controller.atualizarCinema(cinema).getModel().get("cinema");
+
+        Assert.assertNull(cinemaResponse);
+    }
+    
+    @Test
+    public void erroAoAtualizarCinemaComCidadeVaziaTest(){
+        Cinema cinema = new Cinema("Cinema Pinheiro", "Algum lugar de fortaleza", "");
+
+
+        Cinema cinemaResponse = (Cinema) controller.atualizarCinema(cinema).getModel().get("cinema");
+
+        Assert.assertNull(cinemaResponse);
+    }
+    
+    @Test
+    public void erroAoAtualizarCinemaComNomeEEnderecoVaziosTest(){
+        Cinema cinema = new Cinema("", "", "Fortaleza");
+
+
+        Cinema cinemaResponse = (Cinema) controller.atualizarCinema(cinema).getModel().get("cinema");
+
+        Assert.assertNull(cinemaResponse);
+    }
+    
+    @Test
+    public void erroAoAtualizarCinemaComNomeECidadeVaziosTest(){
+        Cinema cinema = new Cinema("", "Algum lugar de fortaleza", "");
+
+
+        Cinema cinemaResponse = (Cinema) controller.atualizarCinema(cinema).getModel().get("cinema");
+
+        Assert.assertNull(cinemaResponse);
+    }
+    
+    @Test
+    public void erroAoAtualizarCinemaComEnderecoECidadeVaziosTest(){
+        Cinema cinema = new Cinema("Cinema Pinheiro", "", "");
+
+
+        Cinema cinemaResponse = (Cinema) controller.atualizarCinema(cinema).getModel().get("cinema");
+
+        Assert.assertNull(cinemaResponse);
+    }
+    
+    @Test
+    public void erroAoAtualizarCinemaComNomeEnderecoECidadeVaziosTest(){
+        Cinema cinema = new Cinema("", "", "");
+
+
+        Cinema cinemaResponse = (Cinema) controller.atualizarCinema(cinema).getModel().get("cinema");
+
+        Assert.assertNull(cinemaResponse);
+    }
+    
+    @Test
+    public void erroAoAtualizarCinemaComNomeSoComEspacosTest(){
+    	Cinema cinema = new Cinema("  ", "Avenida da Universidade", "Quixadá");
+
+        Cinema cinemaResponse = (Cinema) controller.atualizarCinema(cinema).getModel().get("cinema");
+
+        Assert.assertNull(cinemaResponse);
+    }
+    
+    @Test
+    public void erroAoAtualizarCinemaComEnderecoSoComEspacosTest(){
+    	Cinema cinema = new Cinema("Cinema Pinheiro", "  ", "Quixadá");
+
+        Cinema cinemaResponse = (Cinema) controller.atualizarCinema(cinema).getModel().get("cinema");
+
+        Assert.assertNull(cinemaResponse);
+    }
+    
+    @Test
+    public void erroAoAtualizarCinemaComCidadeSoComEspacosTest(){
+    	Cinema cinema = new Cinema("Cinema Pinheiro", "Avenida da Universidade", "  ");
+
+        Cinema cinemaResponse = (Cinema) controller.atualizarCinema(cinema).getModel().get("cinema");
+
+        Assert.assertNull(cinemaResponse);
+    }
+    
+    @Test
+    public void erroAoAtualizarCinemaComNomeEEnderecoSoComEspacosTest(){
+    	Cinema cinema = new Cinema("  ", "  ", "Quixadá");
+
+        Cinema cinemaResponse = (Cinema) controller.atualizarCinema(cinema).getModel().get("cinema");
+
+        Assert.assertNull(cinemaResponse);
+    }
+    
+    @Test
+    public void erroAoAtualizarCinemaComNomeECidadeSoComEspacosTest(){
+    	Cinema cinema = new Cinema("  ", "Avenida da Universidade", "  ");
+
+        Cinema cinemaResponse = (Cinema) controller.atualizarCinema(cinema).getModel().get("cinema");
+
+        Assert.assertNull(cinemaResponse);
+    }
+    
+    @Test
+    public void erroAoAtualizarCinemaComEnderecoECidadeSoComEspacosTest(){
+    	Cinema cinema = new Cinema("Cinema Pinheiro", "  ", "  ");
+
+        Cinema cinemaResponse = (Cinema) controller.atualizarCinema(cinema).getModel().get("cinema");
+
+        Assert.assertNull(cinemaResponse);
+    }
+    
+    @Test
+    public void erroAoAtualizarCinemaComNomeEnderecoECidadeSoComEspacosTest(){
+    	Cinema cinema = new Cinema("  ", "  ", "  ");
+
+        Cinema cinemaResponse = (Cinema) controller.atualizarCinema(cinema).getModel().get("cinema");
+
+        Assert.assertNull(cinemaResponse);
     }
 
     @Test
-    public void erroAoAtualizarGeneroComIdNaoCadastradoTest(){
-        Genero genero = new Genero("  ");
+    public void erroAoAtualizarCinemaComIdNaoCadastradoTest(){
+        Cinema cinema = new Cinema("Cinema Pinheiro", "Avenida da Universidade", "Fortaleza");
 
-        genero.setId(90);
+        cinema.setId(90);
 
-        Genero generoResponse = (Genero) controller.atualizarGenero(genero).getModel().get("genero");
+        Cinema cinemaResponse = (Cinema) controller.atualizarCinema(cinema).getModel().get("cinema");
 
-        Assert.assertNull(generoResponse);
+        Assert.assertNull(cinemaResponse);
     }
 
     @Test
-    public void erroAoAtualizarGeneroComIdNegativoTest(){
-        Genero genero = new Genero("Ação");
-        genero.setId(-500);
+    public void erroAoAtualizarCinemaComIdNegativoTest(){
+    	Cinema cinema = new Cinema("Cinema Pinheiro", "Avenida da Universidade", "Fortaleza");
 
-        Genero generoResponse = (Genero) controller.atualizarGenero(genero).getModel().get("genero");
+        cinema.setId(-90);
 
-        Assert.assertNull(generoResponse);
+        Cinema cinemaResponse = (Cinema) controller.atualizarCinema(cinema).getModel().get("cinema");
+
+        Assert.assertNull(cinemaResponse);
     }
 
     @Test
-    public void buscarTodosOsGeneros(){
-        databaseUtils.deleteAllGeneros();
+    public void buscarTodosOsCinemas(){
+        databaseUtils.deleteAllCinemas();
 
-        controller.addGenero(new Genero("Ação"));
-        controller.addGenero(new Genero("Drama"));
-        controller.addGenero(new Genero("Comédia"));
+        controller.addCinema(new Cinema("Cinema Pinheiro", "Avenida da Universidade", "Fortaleza"));
+        controller.addCinema(new Cinema("Cinema Pinheiro 2", "Avenida da Universidade 2", "Quixadá"));
+        controller.addCinema(new Cinema("Cinema Pinheiro 3", "Avenida da Universidade 3", "Sobral"));
 
-        List<Genero> generos = (List<Genero>) controller.getAllGeneros().getModel().get("generos");
 
-        Assert.assertEquals(3, generos.size());
+
+        List<Cinema> cinemas = (List<Cinema>) controller.get().getModel().get("cinemas");
+
+        Assert.assertEquals(3, cinemas.size());
     }
 
     @Test
     public void erroAoBuscarTodosOsGeneros(){
-        databaseUtils.deleteAllGeneros();
+    	databaseUtils.deleteAllCinemas();
 
-        controller.addGenero(new Genero("Ação"));
-        controller.addGenero(new Genero("Drama"));
-        controller.addGenero(new Genero("Comédia"));
+        controller.addCinema(new Cinema("Cinema Pinheiro", "Avenida da Universidade", "Fortaleza"));
+        controller.addCinema(new Cinema("Cinema Pinheiro 2", "Avenida da Universidade 2", "Quixadá"));
+        controller.addCinema(new Cinema("Cinema Pinheiro 3", "Avenida da Universidade 3", "Sobral"));
 
-        List<Genero> generos = (List<Genero>) controller.getAllGeneros().getModel().get("generos");
 
-        Assert.assertNotEquals(4, generos.size());
+
+        List<Cinema> cinemas = (List<Cinema>) controller.get().getModel().get("cinemas");
+
+        Assert.assertNotEquals(4, cinemas.size());
     }
 	
 }
