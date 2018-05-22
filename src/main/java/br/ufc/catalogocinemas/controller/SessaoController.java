@@ -63,7 +63,7 @@ public class SessaoController {
 
     @RequestMapping(path = "/allFilme", method = RequestMethod.GET)
     public ModelAndView todosPorFilme(@RequestParam("filme") String nomeFilme){
-        FilmeController filmeController = Mocks.getFilmeControllerMock();
+        /*FilmeController filmeController = Mocks.getFilmeControllerMock();
         Filme filme = filmeController.buscarFilmeNome(nomeFilme);
 
         List<Sessao> sessoes = new ArrayList<>();
@@ -75,7 +75,9 @@ public class SessaoController {
         ModelAndView model = new ModelAndView("sessoes");
         model.addObject("sessoes", sessoes);
 
-        return model;
+        return model;*/
+
+        return null;
     }
 
     public ModelAndView todosPorGenero(String genero){
