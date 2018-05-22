@@ -84,7 +84,6 @@ public class DatabaseUtils {
         }
     }
 
-<<<<<<< HEAD
 	public void deleteAllCinemas() {
 		try{
             connection = dataSource.getConnection();
@@ -96,7 +95,7 @@ public class DatabaseUtils {
             System.err.println(e.getMessage());
         }
 	}
-=======
+
     public void deleteAllAtores() {
         try{
             connection = dataSource.getConnection();
@@ -120,6 +119,16 @@ public class DatabaseUtils {
         }
     }
 
->>>>>>> dbf0edf09b6f535e00b0822c0826360778620823
+    public void deleteAllSalas() {
+        try{
+            connection = dataSource.getConnection();
+            Statement statement = connection.createStatement();
+            statement.execute("DELETE FROM SALA");
+            statement.execute("ALTER SEQUENCE sala_id_seq RESTART");
+        }catch (SQLException e){
+            System.err.println(e.getMessage());
+        }
+    }
+
 }
 
