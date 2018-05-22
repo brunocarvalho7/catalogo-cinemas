@@ -107,5 +107,16 @@ public class DatabaseUtils {
         }
     }
 
+    public void deleteAllSalas() {
+        try{
+            connection = dataSource.getConnection();
+            Statement statement = connection.createStatement();
+            statement.execute("DELETE FROM SALA");
+            statement.execute("ALTER SEQUENCE sala_id_seq RESTART");
+        }catch (SQLException e){
+            System.err.println(e.getMessage());
+        }
+    }
+
 }
 
