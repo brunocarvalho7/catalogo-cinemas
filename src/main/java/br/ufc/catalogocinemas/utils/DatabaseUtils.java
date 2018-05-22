@@ -83,5 +83,17 @@ public class DatabaseUtils {
             System.err.println(e.getMessage());
         }
     }
+
+	public void deleteAllCinemas() {
+		try{
+            connection = dataSource.getConnection();
+            Statement statement = connection.createStatement();
+            statement.execute("DELETE FROM cinema_salas");
+            statement.execute("DELETE FROM cinema");
+            statement.execute("ALTER SEQUENCE cinema_id_seq RESTART");
+        }catch (SQLException e){
+            System.err.println(e.getMessage());
+        }
+	}
 }
 
