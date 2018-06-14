@@ -9,7 +9,7 @@ public class Sala{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     private String nome;
 
@@ -20,29 +20,29 @@ public class Sala{
     private Cinema cinema;
 
     @NotNull
-    private int capacidade;
+    private Integer capacidade;
 
     public Sala() {
     }
 
-    public Sala(String nome, TipoSala tipo, int capacidade) {
+    public Sala(String nome, TipoSala tipo, Integer capacidade) {
         this.nome = nome;
         this.tipo = tipo;
         this.capacidade = capacidade;
     }
 
-    public Sala(String nome, TipoSala tipo, Cinema cinema, int capacidade) {
+    public Sala(String nome, TipoSala tipo, Cinema cinema, Integer capacidade) {
         this.nome = nome;
         this.tipo = tipo;
         this.cinema = cinema;
         this.capacidade = capacidade;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -70,11 +70,11 @@ public class Sala{
         this.cinema = cinema;
     }
 
-    public int getCapacidade() {
+    public Integer getCapacidade() {
         return capacidade;
     }
 
-    public void setCapacidade(int capacidade) {
+    public void setCapacidade(Integer capacidade) {
         this.capacidade = capacidade;
     }
 
