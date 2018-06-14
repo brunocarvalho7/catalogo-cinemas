@@ -1,0 +1,14 @@
+header{
+	min-height: 50px;
+	width: 100%;
+	margin-bottom: 25px; 
+	color: white;
+	padding: 15px;
+	border-radius: 70px;
+	box-shadow: 10px 10px 8px #888888;
+}
+
+.btn-add{
+	bottom: 30px;
+	right: 40px;
+}

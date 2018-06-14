@@ -133,9 +133,7 @@ public class GeneroControllerTests {
     public void erroAoAtualizarGeneroComDescricaoSoComEspacosTest(){
         Genero genero = new Genero("  ");
 
-        Genero generoResponse = (Genero) controller.atualizarGenero(genero).getModel().get("genero");
-
-        Assert.assertNull(generoResponse);
+        Assert.assertNull(controller.atualizarGenero(genero).getModel().get("genero"));
     }
 
     @Test

@@ -10,7 +10,7 @@ public class Genero {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     @ManyToMany(mappedBy = "generos")
     private List<Filme> filmes;
@@ -22,16 +22,22 @@ public class Genero {
 
     }
 
+   /* public Genero(Integer id, String descricao) {
+        this.id = id;
+        this.descricao = descricao;
+        this.filmes = new ArrayList<>();
+    }*/
+
     public Genero(String descricao) {
         this.descricao = descricao;
         this.filmes = new ArrayList<>();
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

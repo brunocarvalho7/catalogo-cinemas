@@ -28,6 +28,4 @@ public class CinemaServiceTests {
 
         Assert.assertNotNull(cinema);
     }
-
-	
 }

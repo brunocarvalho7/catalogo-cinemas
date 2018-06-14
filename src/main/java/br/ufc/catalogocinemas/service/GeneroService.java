@@ -20,6 +20,8 @@ public class GeneroService {
     public Genero removerGenero(int id){
         Genero generoResponse = sRepository.findOne(id);
 
+        System.out.println(generoResponse);
+
         if(generoResponse != null)
             sRepository.delete(id);
 
@@ -39,5 +41,9 @@ public class GeneroService {
 
     public List<Genero> getAllGeneros(){
         return sRepository.findAll();
+    }
+
+    public Genero buscarGenero(int id){
+        return sRepository.findOne(id);
     }
 }

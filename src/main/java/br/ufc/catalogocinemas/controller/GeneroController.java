@@ -5,48 +5,61 @@ import br.ufc.catalogocinemas.service.GeneroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
 @Controller
-@RequestMapping("/generos")
+@RequestMapping("/generos/")
 public class GeneroController {
 
     @Autowired
     GeneroService sService;
 
-    @RequestMapping(path = "/add", method = RequestMethod.POST)
-    public ModelAndView addGenero(Genero genero){
+    @PostMapping("add")
+    public ModelAndView addGenero(@ModelAttribute Genero genero){
         ModelAndView model = new ModelAndView("genero");
 
         if(genero != null && genero.getDescricao() != null && genero.getDescricao().trim().isEmpty() == false){
             Genero generoResponse = sService.addGenero(genero);
 
             model.addObject("genero", generoResponse);
+            model.getModelMap().addAttribute("msg", "Gênero " + generoResponse.getDescricao() + " adicionado com sucesso!!");
+        }else{
+            model.getModelMap().addAttribute("msg", "Erro ao tentar adicionar o gênero!");
         }
+
+        model.addObject("generos", sService.getAllGeneros());
 
         return model;
     }
 
-    @RequestMapping(path = "/remover/{id}")
+    @RequestMapping(path = "remover/{id}", method = RequestMethod.GET)
     public ModelAndView removerGenero(@PathVariable("id") int id){
         ModelAndView model = new ModelAndView("genero");
 
         if(id > 0){
             Genero generoResponse = sService.removerGenero(id);
 
-            model.addObject("genero", generoResponse);
+            if(generoResponse != null){
+                model.addObject("genero", generoResponse);
+                model.getModelMap().addAttribute("msg", "Gênero " + generoResponse.getDescricao() + " removido com sucesso!!");
+            }else{
+                model.getModelMap().addAttribute("msg", "Gênero não localizado!!");
+            }
+
+        }else{
+            model.getModelMap().addAttribute("msg", "Erro ao tentar remover o gênero!!");
         }
+
+        model.addObject("generos", sService.getAllGeneros());
 
         return model;
     }
 
-    @RequestMapping(path = "/atualizar", method = RequestMethod.POST)
-    public ModelAndView atualizarGenero(Genero genero){
+    @PostMapping("atualizar")
+    public ModelAndView atualizarGenero(@ModelAttribute Genero genero){
         ModelAndView model = new ModelAndView("genero");
 
         if(genero != null && genero.getId() > 0){
@@ -54,15 +67,35 @@ public class GeneroController {
                 Genero generoResponse = sService.atualizarGenero(genero);
 
                 model.addObject("genero", generoResponse);
+                model.getModelMap().addAttribute("msg", "Gênero " + generoResponse.getDescricao() + " atualizado com sucesso!!");
             }
+        }else{
+            model.getModelMap().addAttribute("msg", "Erro ao tentar atualizar o gênero!");
         }
+
+        model.addObject("generos", sService.getAllGeneros());
 
         return model;
     }
 
-    @RequestMapping(path = "/")
+    @RequestMapping(method = RequestMethod.GET)
     public ModelAndView getAllGeneros(){
         ModelAndView model = new ModelAndView("genero");
+        model.addObject("genero", new Genero());
+
+        model.addObject("generos", sService.getAllGeneros());
+
+        return model;
+    }
+    @RequestMapping(path = "{id}", method = RequestMethod.GET)
+    public ModelAndView buscarGenero(@PathVariable("id") int id){
+        ModelAndView model = new ModelAndView("genero");
+        if(id > 0){
+            model.addObject("genero", sService.buscarGenero(id));
+            model.addObject("comando", "atualizar");
+        }else{
+            model.getModelMap().addAttribute("msg", "Erro ao tentar localizar o registro");
+        }
 
         model.addObject("generos", sService.getAllGeneros());
 
