@@ -12,8 +12,8 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 
 @Controller
-public class PrincipalController implements ErrorController {
-
+public class PrincipalController {
+ //implements ErrorController
     public String index(){
         return "index";
     }
@@ -27,18 +27,18 @@ public class PrincipalController implements ErrorController {
         model.addObject("filmes", filmes);*/
         return model;
     }
-
-    @RequestMapping(path = "/error")
-    public ModelAndView getError(){
-        //TODO PAGINA DE ERRO
-        ModelAndView model = new ModelAndView("index");
-        model.getModelMap().addAttribute("msg", "Ocorreu um erro ao tentar realizar a solicitação desejada");
-
-        return model;
-    }
-
-    @Override
-    public String getErrorPath() {
-        return "/error";
-    }
+//
+//    @RequestMapping(path = "/error")
+//    public ModelAndView getError(){
+//        //TODO PAGINA DE ERRO
+//        ModelAndView model = new ModelAndView("index");
+//        model.getModelMap().addAttribute("msg", "Ocorreu um erro ao tentar realizar a solicitação desejada");
+//
+//        return model;
+//    }
+//
+//    @Override
+//    public String getErrorPath() {
+//        return "/error";
+//    }
 }

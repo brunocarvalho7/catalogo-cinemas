@@ -30,8 +30,6 @@ public class CinemaServiceTests {
 
         Assert.assertNotNull(cinema);
     }
-<<<<<<< HEAD
-=======
     
     @Test
     public void removerCinemaTest(){
@@ -93,7 +91,4 @@ public class CinemaServiceTests {
         
         Assert.assertNull(service.atualizarCinema(cinema));
     }
-
-	
->>>>>>> 60591303372a92e43affce863c5040f62df12610
 }

@@ -1,7 +1,8 @@
 package br.ufc.catalogocinemas.model;
 
+import org.springframework.context.annotation.Bean;
+
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +10,6 @@ import java.util.List;
 @Entity
 public class Ator extends Pessoa {
 
-    //@ManyToMany(mappedBy = "atores", fetch = FetchType.EAGER)
     @ManyToMany(mappedBy = "atores")
     private List<Filme> filmes;
 
@@ -19,6 +19,36 @@ public class Ator extends Pessoa {
     public Ator(String nome, String sobre) {
         super(nome, sobre);
         this.filmes = new ArrayList<>();
+    }
+
+    @Override
+    public Integer getId() {
+        return super.getId();
+    }
+
+    @Override
+    public void setId(Integer id) {
+        super.setId(id);
+    }
+
+    @Override
+    public String getNome() {
+        return super.getNome();
+    }
+
+    @Override
+    public void setNome(String nome) {
+        super.setNome(nome);
+    }
+
+    @Override
+    public String getSobre() {
+        return super.getSobre();
+    }
+
+    @Override
+    public void setSobre(String sobre) {
+        super.setSobre(sobre);
     }
 
     public List<Filme> getFilmes() {
@@ -44,4 +74,7 @@ public class Ator extends Pessoa {
 
         return "{{ "+super.toString() + aux+" }}";
     }
+
+
+
 }

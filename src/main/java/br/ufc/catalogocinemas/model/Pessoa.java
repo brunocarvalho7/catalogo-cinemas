@@ -11,7 +11,7 @@ public abstract class Pessoa {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     @NotNull
     private String nome;
@@ -20,16 +20,23 @@ public abstract class Pessoa {
     public Pessoa() {
     }
 
+    public Pessoa(Integer id, String nome, String sobre) {
+        this.id = id;
+        this.nome = nome;
+        this.sobre = sobre;
+    }
+
+
     public Pessoa(String nome, String sobre) {
         this.nome = nome;
         this.sobre = sobre;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
