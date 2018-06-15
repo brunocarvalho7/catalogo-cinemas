@@ -127,4 +127,8 @@ public class SalaController {
         return model;
     }
 
+    public List<Sala> salasDisponiveisParaOCinema(int idCinema){
+        return sService.salasDisponiveisParaOCinema(idCinema);
+    }
+
 }

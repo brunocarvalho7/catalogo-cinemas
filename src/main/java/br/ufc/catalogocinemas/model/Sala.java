@@ -90,14 +90,8 @@ public class Sala{
 
     @Override
     public String toString() {
-        Integer idCinema = cinema != null ? cinema.getId() : null;
-
-        return "Sala{" +
-                "id=" + id +
-                ", nome='" + nome + '\'' +
-                ", tipo=" + tipo +
-                ", cinema=" + idCinema+
-                ", capacidade=" + capacidade +
-                '}';
+        return "Nome: "+nome+
+                ", tipo: " + tipo +
+                ", capacidade: " + capacidade;
     }
 }
