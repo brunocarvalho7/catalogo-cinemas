@@ -5,15 +5,31 @@
 >
 <head>
     <title>Index</title>
-    <link href="/webjars/materializecss/0.97.7/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link href="/webjars/materialize/1.0.0-beta/dist/css/materialize.css" type="text/css" rel="stylesheet"
+          media="screen,projection"/>
+    <link th:href="@{/css/style.css}" rel="stylesheet" />
 </head>
 <body>
 
 <div class="container">
-    <center>
-        <h3>Gerenciar Sessoes</h3>
-    </center>
-    <br />
+	<nav>
+    <div class="nav-wrapper">
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <li><a th:href="@{/index/}">Início</a></li>
+        <li><a th:href="@{/ator/}">Ator</a></li>
+        <li><a th:href="@{/cinema/}">Cinema</a></li>
+        <li><a th:href="@{/diretor/}">Diretor</a></li>
+        <li><a th:href="@{/filme/}">Filmes</a></li>
+        <li><a th:href="@{/generos/}">Gêneros</a></li>
+        <li><a th:href="@{/sala/}">Sala</a></li>
+      </ul>
+    </div>
+  </nav>
+	    <center>
+	        <h3>Gerenciar Sessoes</h3>
+	    </center>
+	    <br />
 
 
     <div class="row">

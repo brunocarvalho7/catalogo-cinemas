@@ -52,4 +52,8 @@ public class SalaService{
         return sRepository.findByNome(nome);
     }
 
+    public List<Sala> salasDisponiveisParaOCinema(int id){
+        return sRepository.salasDisponiveisParaOCinema(id);
+    }
+
 }

@@ -16,7 +16,7 @@ public class Filme {
     private String nome;
 
     private String sinopse;
-    private int duracao;
+    private Integer duracao;
 
     @ManyToMany
             (cascade = {
@@ -51,7 +51,7 @@ public class Filme {
     public Filme() {
     }
 
-    public Filme(String nome, String sinopse, int duracao) {
+    public Filme(String nome, String sinopse, Integer duracao) {
         this.nome = nome;
         this.sinopse = sinopse;
         this.duracao = duracao;
@@ -60,7 +60,7 @@ public class Filme {
         this.diretores = new ArrayList<>();
     }
 
-    public Filme(String nome, String sinopse, int duracao, List<Ator> atores, List<Diretor> diretores, List<Genero> generos) {
+    public Filme(String nome, String sinopse, Integer duracao, List<Ator> atores, List<Diretor> diretores, List<Genero> generos) {
         this.nome = nome;
         this.sinopse = sinopse;
         this.duracao = duracao;
@@ -93,11 +93,11 @@ public class Filme {
         this.sinopse = sinopse;
     }
 
-    public int getDuracao() {
+    public Integer getDuracao() {
         return duracao;
     }
 
-    public void setDuracao(int duracao) {
+    public void setDuracao(Integer duracao) {
         this.duracao = duracao;
     }
 
