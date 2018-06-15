@@ -15,7 +15,7 @@ public class Sessao implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     @NotNull
     @OneToOne
@@ -37,7 +37,7 @@ public class Sessao implements Serializable{
     public Sessao() {
     }
 
-    public Sessao(int id, Filme filme, Sala sala, LocalTime horario, LocalDate dataInicio, LocalDate dataFim) {
+    public Sessao(Integer id, Filme filme, Sala sala, LocalTime horario, LocalDate dataInicio, LocalDate dataFim) {
         this(filme,sala,horario,dataInicio,dataFim);
         this.id = id;
     }
@@ -50,11 +50,11 @@ public class Sessao implements Serializable{
         this.dataFim = dataFim;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

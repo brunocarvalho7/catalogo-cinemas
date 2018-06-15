@@ -18,15 +18,6 @@ public class PrincipalController {
         return "index";
     }
 
-    @RequestMapping(path = "/add")
-    public ModelAndView addSessao() {
-        ModelAndView model = new ModelAndView("adicionar-sessao");
-        /*List<Filme> filmes = Mocks.getFilmeControllerMock().buscarTodosOsFilmes();
-        List<Sala> salas= Mocks.getSalaControllerMock().buscarTodasAsSalas();
-        model.addObject("salas", salas);
-        model.addObject("filmes", filmes);*/
-        return model;
-    }
 //
 //    @RequestMapping(path = "/error")
 //    public ModelAndView getError(){

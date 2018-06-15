@@ -4,8 +4,9 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
     <title>Index</title>
-    <link href="/webjars/materializecss/0.97.7/css/materialize.css"
-          type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link href="/webjars/materialize/1.0.0-beta/dist/css/materialize.css" type="text/css" rel="stylesheet"
+          media="screen,projection"/>
 </head>
 <body>
 <div class="container">
@@ -22,7 +23,7 @@
                 <option value="" disabled="disabled" selected="selected">Escolha
                     um Filme</option>
                 <option th:each="filme: ${filmes}" th:value="${filme.id}"
-                        th:text="${filme.id}"></option>
+                        th:text="${filme.nome}"></option>
             </select>
             </div>
 
@@ -32,18 +33,18 @@
                 <option value="Testa" disabled="disabled" selected="selected">Escolha
                     uma Sala</option>
                 <option th:each="sala: ${salas}" th:value="${sala.id}"
-                        th:text="${sala.id}"></option>
+                        th:text="${sala.nome}"></option>
             </select>
             </div>
             <div class="input-field col s4">
                 <input placeholder="####-##-##" id="dataIncio"
-                       name="dataInicio" type="text" class="validate" /> <label
-                    for="first_name">Horia Inicial da Sessao</label>
+                       name="dataInicio" type="date" class="validate" /> <label
+                    for="first_name">Data Inicial da Sessao</label>
             </div>
             <div class="input-field col s4">
                 <input placeholder="####-##-##" id="dataFim"
-                       name="dataFim" type="text" class="validate" /> <label
-                    for="first_name">Horia Final da Sessao</label>
+                       name="dataFim" type="date" class="validate" /> <label
+                    for="first_name">Data Final da Sessao</label>
             </div>
 
             <div class="input-field col s4">

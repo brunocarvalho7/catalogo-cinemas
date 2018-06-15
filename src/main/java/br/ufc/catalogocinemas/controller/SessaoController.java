@@ -36,13 +36,19 @@ public class SessaoController {
 
     @RequestMapping(path = "/", method = RequestMethod.GET)
     public ModelAndView todas(){
-        ModelAndView model = new ModelAndView("index");
-        model.addObject("sessoes", sService.todas());
+        ModelAndView model = new ModelAndView("sessao");
+        List<Sessao> s = sService.todas();
+        if (s.isEmpty()){
+            model.addObject("mensagem", "Não há sessão cadastrada");
+        }else {
+            model.addObject("sessoes", s);
+        }
+
         return model;
     }
 
     @RequestMapping(path= "/periodo", method = RequestMethod.GET)
-    public ModelAndView todasPorData(String dataInicio, String dataFim){
+    public ModelAndView todasPorData(@RequestParam String dataInicio,@RequestParam String dataFim){
         LocalDate dateStart = LocalDate.parse(dataInicio);
         LocalDate dateEnd   = LocalDate.parse(dataFim);
 
@@ -103,7 +109,7 @@ public class SessaoController {
     }
 
     @RequestMapping(path = "/add", method = RequestMethod.POST)
-    public ModelAndView addSessao(@RequestParam int filme,@RequestParam int sala,
+    public ModelAndView addSessao(@RequestParam Integer filme,@RequestParam Integer sala,
                                   @RequestParam String horario,@RequestParam String dataInicio,@RequestParam String dataFim) {
 
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ISO_LOCAL_DATE;
@@ -123,30 +129,44 @@ public class SessaoController {
         } catch (ConstraintViolationException e) {
             msgRetorno = Constantes.MSG_ERRO_INSERIR_SESSAO;
         }
-
+        model.addObject("salas", salaService.getAll()) ;
+        model.addObject("filmes", filmeService.getAll()) ;
         model.addObject("sessao", sessaoResponse);
         model.addObject("msg", msgRetorno);
 
         return model;
     }
-
-    public ModelAndView addSessao(Sessao sessao){
-
-        ModelAndView model = new ModelAndView("index");
-        String msgRetorno     = Constantes.MSG_SUCESSO_INSERIR_SESSAO;
-        Sessao sessaoResponse = null;
-
-        try{
-            sessaoResponse = sService.addSessao(sessao);
-        }catch(ConstraintViolationException e){
-            msgRetorno = Constantes.MSG_ERRO_INSERIR_SESSAO;
-        }
-
-        model.addObject("sessao", sessaoResponse);
-        model.addObject("msg", msgRetorno);
-
-        return model;
-    }
+//    @PostMapping("add")
+//    public ModelAndView addSessao(@RequestParam int filme,@RequestParam int sala,
+//                                  @RequestParam String horario,@RequestParam String dataInicio,@RequestParam String dataFim){
+//
+//        ModelAndView model = new ModelAndView("adicionar-sessao");
+//
+//        if (filme != null && sala != null){
+//            DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ISO_LOCAL_DATE;
+//            DateTimeFormatter TimeFormatter = DateTimeFormatter.ISO_LOCAL_TIME;
+//
+//            Sessao sessao = new Sessao(filmeService.buscarFilmeId(filme),
+//                    salaService.buscarSala(sala), LocalTime.parse(horario, TimeFormatter),
+//                    LocalDate.parse(dataInicio, dateTimeFormatter), LocalDate.parse(dataFim, dateTimeFormatter));
+//
+//        }
+//        String msgRetorno     = Constantes.MSG_SUCESSO_INSERIR_SESSAO;
+//
+//        Sessao sessaoResponse = null;
+//
+//        try{
+//            sessaoResponse = sService.addSessao(sessao);
+//        }catch(ConstraintViolationException e){
+//            msgRetorno = Constantes.MSG_ERRO_INSERIR_SESSAO;
+//        }
+//        model.addObject("salas", salaService.getAll()) ;
+//        model.addObject("filmes", filmeService.getAll()) ;
+//        model.addObject("sessao", sessaoResponse);
+//        model.addObject("msg", msgRetorno);
+//
+//        return model;
+//    }
 
     @RequestMapping(path = "/delete/{id}")
     public ModelAndView removerSessao(int id){

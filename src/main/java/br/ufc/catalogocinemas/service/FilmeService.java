@@ -1,6 +1,7 @@
 package br.ufc.catalogocinemas.service;
 
 import br.ufc.catalogocinemas.model.Filme;
+import br.ufc.catalogocinemas.model.Sessao;
 import br.ufc.catalogocinemas.repository.FilmeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,8 +14,12 @@ public class FilmeService {
     @Autowired
     FilmeRepository sRepository;
 
+    public List<Filme> getAll(){
+        return sRepository.findAll();
 
-    public Filme buscarFilmeId(int id) {
+    }
+
+    public Filme buscarFilmeId(Integer id) {
         return sRepository.findOne(id);
     }
 

@@ -327,7 +327,7 @@ public class SessaoServiceTests {
         service.addSessao(sessaoB);
         service.addSessao(sessaoC);
 
-        int idSessaoDesejada = sessaoB.getId();
+        Integer idSessaoDesejada = sessaoB.getId();
 
         Sessao sessaoRecebida = service.getSessaoPorId(idSessaoDesejada);
 

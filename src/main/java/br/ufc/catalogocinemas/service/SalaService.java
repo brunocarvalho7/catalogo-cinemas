@@ -37,7 +37,10 @@ public class SalaService{
         return salaResponse;
     }
 
-    public Sala buscarSala(int id) {
+    public List<Sala> getAll(){
+        return sRepository.findAll();
+    }
+    public Sala buscarSala(Integer id) {
         return sRepository.findOne(id);
     }
 
