@@ -14,6 +14,8 @@ import java.util.List;
 @Controller
 public class PrincipalController {
  //implements ErrorController
+	
+	@RequestMapping(path = "/index/")
     public String index(){
         return "index";
     }
