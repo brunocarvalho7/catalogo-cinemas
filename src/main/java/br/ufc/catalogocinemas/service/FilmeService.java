@@ -45,4 +45,8 @@ public class FilmeService {
 
         return filmeResponse;
     }
+
+    public List<Filme> buscarTodos(){
+        return sRepository.findAll();
+    }
 }

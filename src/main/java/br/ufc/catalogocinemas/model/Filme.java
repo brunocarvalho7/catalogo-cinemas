@@ -10,13 +10,13 @@ public class Filme {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     @NotNull
     private String nome;
 
     private String sinopse;
-    private int duracao;
+    private Integer duracao;
 
     @ManyToMany
             (cascade = {
@@ -51,7 +51,7 @@ public class Filme {
     public Filme() {
     }
 
-    public Filme(String nome, String sinopse, int duracao) {
+    public Filme(String nome, String sinopse, Integer duracao) {
         this.nome = nome;
         this.sinopse = sinopse;
         this.duracao = duracao;
@@ -60,7 +60,7 @@ public class Filme {
         this.diretores = new ArrayList<>();
     }
 
-    public Filme(String nome, String sinopse, int duracao, List<Ator> atores, List<Diretor> diretores, List<Genero> generos) {
+    public Filme(String nome, String sinopse, Integer duracao, List<Ator> atores, List<Diretor> diretores, List<Genero> generos) {
         this.nome = nome;
         this.sinopse = sinopse;
         this.duracao = duracao;
@@ -69,11 +69,11 @@ public class Filme {
         this.generos = generos;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -93,11 +93,11 @@ public class Filme {
         this.sinopse = sinopse;
     }
 
-    public int getDuracao() {
+    public Integer getDuracao() {
         return duracao;
     }
 
-    public void setDuracao(int duracao) {
+    public void setDuracao(Integer duracao) {
         this.duracao = duracao;
     }
 
