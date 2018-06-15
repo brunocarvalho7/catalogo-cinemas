@@ -50,17 +50,23 @@ public class CinemaService {
     }
 
     public boolean vincularSala(int idSala, int idCinema) {
-        Sala sala = salaService.buscarSala(idSala);
-        Cinema cinema = sRepository.findOne(idCinema);
+        try {
+            Sala sala = salaService.buscarSala(idSala);
 
-        cinema.vincularSala(sala);
-        Cinema cinemaResponse = sRepository.save(cinema);
-        Sala salaResponse = salaService.atualizarSala(sala);
+            Cinema cinema = sRepository.findOne(idCinema);
 
-        if(cinemaResponse != null && salaResponse != null){
-            return true;
+            cinema.vincularSala(sala);
+            Cinema cinemaResponse = sRepository.save(cinema);
+            Sala salaResponse = salaService.atualizarSala(sala);
+
+            if (cinemaResponse != null && salaResponse != null) {
+                return true;
+            } else {
+                return false;
+            }
+        }catch(Exception e){
+            System.out.println(e.getMessage());
         }
-
         return false;
     }
 
